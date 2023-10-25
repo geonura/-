@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- 반응형 웹사이트를 위해 추가 -->
+    <title>공항안전솔루션</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean');
+    </style>
+</head>
+<body>
+    <div class='main-content'>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img class="bi me-2" width="40" height="32" src="{% static 'img/airplane-emoji-clipart-md.png' %}" alt="로고"></img>
+                <span class="fs-4">  <strong>AI 공항 안전 솔루션</strong></span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{% url 'main' %}" class="nav-link">서비스 소개</a></li>
+                <li class="nav-item"><a href="{% url 'upload_video' %}" class="nav-link">AI 관제 보조</a></li>
+                <li class="nav-item"><a href="{% url 'team' %}" class="nav-link">팀원 소개</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    </div>
+
+    <div class="footer bg-dark text-white py-4">
+        <div class="container">
+            <h5 class="mb-2">항공 관제을 책임지는 AI 공항 안전 솔루션</h5>
+            <h6 class="mb-2">Copyright 2023. 대박징조 all rights reserved.</h6>
+            <h6>미래내일 청년일경험 프로젝트</h6>
+        </div>
+    </div>
+</body>
+
+</html>
