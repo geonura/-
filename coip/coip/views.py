@@ -3,7 +3,7 @@ from .forms import VideoForm
 from .models import Video
 from ai.app import process_and_render
 from django.conf import settings
-
+import os
 def main(request):
     video_path = '/videos/original.mp4/' #비디오 파일 경로
     context = {
@@ -37,10 +37,10 @@ def result_video(request, video_id):
     video = Video.objects.get(id=video_id)
     if video:
         # video.video_file.path로 파일 경로 얻기
-        processed_data = process_and_render(video.video_file.path)  
+        processed_image_path = process_and_render(video.video_file.path)  
         context = {
             'file_data': video.video_file,
-            'processed_data': processed_data,
+            'processed_data_url': os.path.join(settings.MEDIA_URL, 'temp', 'processed_image.jpg'),
         }
         return render(request, 'coip/result_video.html', context)
     else:
