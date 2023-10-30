@@ -1,0 +1,10 @@
+
+# train and val datasets (image directory or *.txt file with image paths)
+train: /Users/yujunwon/Work/work2/train/
+val: /Users/yujunwon/Work/work2/val/
+
+# number of classes
+nc: 1
+
+# class names
+names: ['Aircraft']
