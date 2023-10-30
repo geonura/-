@@ -1,0 +1,68 @@
+{% extends 'coip/base.html' %}
+
+{% load static %}
+
+{% block extrahead %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .video-description {
+        font-size: 18px;
+    }
+    .video-description h4 {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .video-description p {
+        margin-bottom: 50px;
+    }
+</style>
+{% endblock extrahead %}
+
+{% block content %}
+<body>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <!-- 비디오 부분 -->
+        <div class="col-md-6 mb-3">
+            <video controls class="w-100 mb-3">
+                <source src="{{ MEDIA_URL }}{{ video }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <!-- 텍스트 부분 -->
+        <div class="col-md-6">
+            <div class="video-description">
+                <h2>🛫 <strong>AI 스마트 항공 관제 솔루션</strong></h2>
+                <p>공항 활주로는 항상 붐비고, 여러 기체와 유도 차량들이 활발히 이동하는 곳입니다.
+                이러한 복잡한 환경에서는 항상 안전사고의 위험이 도사리고 있습니다.</p>
+                
+                <p>AI 스마트 항공 관제 솔루션은 이러한 문제를 해결하기 위한 AI 기반 솔루션입니다.</p>
+                <br>
+                <h4>1. 위성 영상 기반 실시간 모니터링</h4>
+                <p>  공항 활주로의 현재 상황을 위성 영상을 통해 실시간으로 모니터링하여, 충돌 위험을 사전에 감지하고 예방합니다.</p> 
+                <p>  (현재 비행기에 대한 식별이 가능하며, 추후 차량(기체 유도차량, 기내식 운반 차량 등)과 공항의 지형 지물 등을 추가할 계획입니다.)</p>
+                
+                <h4>2. 비행기와 유도 차량 충돌 방지</h4>
+                <p>  AI 기술을 활용해 활주로에 있는 비행기와 유도 차량의 이동 경로를 예측하고, 충돌 위험 시 즉각적인 경고를 관제탑에 전달합니다.</p>
+                
+                <h4>3. 계류장 안전 감시</h4>
+                <p>  계류장 내부에서의 위험 상황도 탐지하여, 비행기의 안전한 출발과 도착을 지원합니다.</p>
+                <br>
+                <h4>버튼을 눌러 탐지해보세요!</h4>
+                <div class="back-btn">
+                    <a href="{% url 'main2' %}" class="btn btn-primary">변환</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

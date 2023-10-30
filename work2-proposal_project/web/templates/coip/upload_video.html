@@ -1,0 +1,39 @@
+{% extends "coip/base.html" %}
+{% block content %}
+<header>
+    <style>
+        .card {
+            width: 5000px;
+            max-width: 100%;
+        }
+        
+        .img-fluid {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</header>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mx-auto">
+            <h2 class="mb-4">이미지 업로드</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label">이미지 파일</label>
+                            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.auto_id }}" class="form-control">
+                        </div>
+                        {% endfor %}
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">업로드</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
